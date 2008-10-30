@@ -73,10 +73,14 @@ module Cache
     # TODO: now only support single server request
     def self.send_command(p_command, p_ending_line = "end")
       begin
-        process_command(p_command, p_ending_line)
+        process_command(p_command, p_ending_line) do |line|
+          yield(line)
+        end
       rescue
         setup(@@m_configurations)
-        process_command(p_command, p_ending_line)
+        process_command(p_command, p_ending_line) do |line|
+          yield(line)
+        end
       end
     end
     
