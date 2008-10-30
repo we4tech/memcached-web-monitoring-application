@@ -1,0 +1,47 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  pid: 1
+  uptime: 1
+  time: 
+  pointer_size: 1
+  rusage_user: 1.5
+  rusage_system: 1.5
+  curr_items: 1
+  total_items: 1
+  bytes: 
+  curr_connections: 1
+  total_connections: 1
+  connection_structures: 1
+  cmd_get: 1
+  cmd_set: 1
+  get_hits: 1
+  get_misses: 1
+  evictions: 1
+  bytes_read: 
+  bytes_written: 
+  limit_maxbytes: 
+  threads: 1
+
+two:
+  pid: 1
+  uptime: 1
+  time: 
+  pointer_size: 1
+  rusage_user: 1.5
+  rusage_system: 1.5
+  curr_items: 1
+  total_items: 1
+  bytes: 
+  curr_connections: 1
+  total_connections: 1
+  connection_structures: 1
+  cmd_get: 1
+  cmd_set: 1
+  get_hits: 1
+  get_misses: 1
+  evictions: 1
+  bytes_read: 
+  bytes_written: 
+  limit_maxbytes: 
+  threads: 1

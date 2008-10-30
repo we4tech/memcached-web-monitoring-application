@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <title>memecached - web monitoring tool!</title>
+    <%= stylesheet_link_tag("/stylesheets/template-1/base.css") %>
+  </head>
+  <body>
+    <!-- page top -->
+    <div class="top">
+      <div class="logo">
+        &nbsp;
+      </div>
+      <div class="tools">
+        <ul>
+          <li><a href="#">home</a></li>
+          <li><a href="#">settings</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- page content area -->
+    <div class="center">
+      <!-- tab based navigation area -->
+      <div id="tabsC">
+        <%= render_tabs(
+              {:url => dashboard_url, :label => "charts", :icon => "/images/template-1/chart.png", :parameter => "tab", :selected => true},
+              {:url => dashboard_tab_url(:tab => "information"), :label => "information", :icon => "/images/template-1/info.png", :parameter => "tab"},
+              {:url => dashboard_tab_url(:tab => "tools"), :label => "tools", :icon => "/images/template-1/tools.png", :parameter => "tab"}) %>
+      </div>
+
+      <!--- content area -->
+      <div class="tab-content">
+        <% if flash[:notice] %>
+          <div class="message">
+            <%= flash[:notice] %>
+            <a href="javascript: void(0)" onclick="this.parentNode.style.display = 'none'">hide</a>
+          </div>
+        <% end %>
+        <%= yield %>
+      </div>
+    </div>
+
+    <!-- page footer area -->
+    <div class="bottom">
+        <h3>
+          <a href="http://hasan.we4tech.com">simply code it!</a>
+        </h3>
+    </div>
+  </body>
+</html>

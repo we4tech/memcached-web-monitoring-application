@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	two axies line charts which load updates from the specified service url
+	this chart is also able to automatically update charts after certain interval.
+	
+	"service_url" and "interval" parameters are defined through flash embedding code.
+	where "FlashVars" attribute is used.
+-->
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" backgroundColor="#ffffff" creationComplete="init()">
+	<mx:Script>
+		<![CDATA[
+			import mx.formatters.NumberFormatter;
+			import mx.rpc.events.ResultEvent;
+			import mx.charts.series.LineSeries;
+			import mx.controls.Alert;
+			import mx.collections.ArrayCollection;
+			
+			[Bindable]
+			var mServiceUrl:String = null;
+			var mInterval:int = 0;
+			
+			[Bindable]
+			var mLabels:Array = [];
+			
+			[Bindable]
+			var mFieldNames:Array = [];
+			var mLastId:int = 0;
+			var mTimer:Timer;
+			
+			[Bindable]
+			var mData:ArrayCollection = new ArrayCollection();
+			
+			/**
+			 * Find service url parameter from the defined parameters.
+			 * this parameters are defined while embedding code is written
+			 * 
+			 * also find "interval" parameter which is used for running timer 
+			 * on a the specified interval to update the content. 
+			 */ 
+			private function init():void {
+				if (parameters.hasOwnProperty("service_url")) {
+					mServiceUrl = parameters.service_url;
+					trace("Service url - " + mServiceUrl);
+					
+					// find interval parameter this parameter is optional
+					if (parameters.hasOwnProperty("interval")) {
+						mInterval = int(parameters.interval);
+						trace("interval parameter - " + mInterval);
+					}
+					
+					// find lables parameter, this parameter is optional
+					if (parameters.hasOwnProperty("labels")) {
+						var labels:Array = parameters.labels.split(",");
+						var formattedLabels:Array = []
+						for (var i:int = 0; i < labels.length; i++) {
+							var label:String = labels[i];
+							var labelParts:Array = label.split("|");
+							formattedLabels[i] = labelParts[0];
+							mFieldNames[i] = labelParts[1];
+						}
+						mLabels = formattedLabels;
+					}
+					
+					// load web service
+					webServiceConnection.send();
+					
+					// start timer
+					if (mInterval == 0) {
+						mTimer = new Timer(5 * 60 * 1000); // after every 5 minutes refresh the whole changes
+					} else {
+						mTimer = new Timer(mInterval);
+					}
+					mTimer.addEventListener("timer", timerHandler);
+					mTimer.start();
+				} else {
+					Alert.show("please define 'service_url' parameter in your flash embedding code");
+				}
+			}
+			
+			private function timerHandler(pEvent:TimerEvent):void {
+				trace("timer invoked");
+				webServiceConnection.send();
+			}
+			
+			private function processWebServiceResponse(pEvent:ResultEvent):void {
+				var results:ArrayCollection = pEvent.result.statistics.statistic as ArrayCollection
+				var data:ArrayCollection = new ArrayCollection();
+				for (var i:int = 0; i < results.length; i++) {
+					var stat:Object = results[i];
+					data.addItem({f1: stat[mFieldNames[0]], f2: stat[mFieldNames[1]]})
+				}
+				mData = data;
+			} 
+		]]>
+	</mx:Script>
+	
+	<!-- http service -->
+	<mx:HTTPService
+		id="webServiceConnection"
+		url="{mServiceUrl}"
+		fault="Alert.show(event.fault.faultString)"
+		result="processWebServiceResponse(event)"
+		/>
+	
+	<!-- chart service -->
+	<mx:LineChart x="0" y="0" id="mLineChart" height="100%" width="100%" dataProvider="{mData}">
+		<mx:series>
+			<mx:LineSeries displayName="{mLabels[0]}" yField="f1"/>
+			<mx:LineSeries displayName="{mLabels[1]}" yField="f2"/>
+		</mx:series>
+	</mx:LineChart>
+	<mx:Legend dataProvider="{mLineChart}" direction="horizontal" width="100%" x="50" y="20"/>
+</mx:Application>

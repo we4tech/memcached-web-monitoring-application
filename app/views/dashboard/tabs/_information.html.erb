@@ -1,0 +1,21 @@
+<h2>information</h2>
+<table summary="Submitted table designs">
+  <thead>
+    <tr>
+      <th scope="col">key</th>
+      <th scope="col">value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% item_count = 0 %>
+    <% @statistic.attributes.each do |key, value| %>
+      <tr class="<%= item_count % 2 != 0 ? 'odd' : '' %>">
+        <td>
+            <strong><%= key %></strong>
+        </td>
+        <td><%= value %></td>
+      </tr>
+      <% item_count += 1 %>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,18 @@
+# memached related configuration
+production:
+  container: memcache-client
+  namespace: production_daemon
+  servers:
+    first: "localhost:11211"
+
+development:
+  container: memcache-client
+  namespace: development_daemon
+  servers:
+    first: "localhost:11211"
+
+test:
+  container: memcache-client
+  namespace: test_daemon
+  servers:
+    first: "localhost:11211"

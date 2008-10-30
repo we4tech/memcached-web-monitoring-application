@@ -1,0 +1,11 @@
+<h2>cache hits/misses usages</h2>
+<%= render(:partial => "charts/panel", :locals => {:select => "id,get_hits,get_misses", :limit => 50, :labels => "misses|get-misses,hits|get-hits", :interval => 5.minutes.to_i * 1000}) %>
+
+<h2>bytes read/write usages</h2>
+<%= render(:partial => "charts/panel", :locals => {:select => "id,bytes_read,bytes_written", :limit => 50, :labels => "bytes read|bytes-read,bytes written|bytes-written", :interval => 5.minutes.to_i * 1000}) %>
+
+<h2>cache memory usages</h2>
+<%= render(:partial => "charts/panel", :locals => {:select => "id,limit_maxbytes,bytes", :limit => 50, :labels => "max bytes|limit-maxbytes,bytes used|bytes", :interval => 5.minutes.to_i * 1000}) %>
+
+<h2>total items/current items</h2>
+<%= render(:partial => "charts/panel", :locals => {:select => "id,curr_items,total_items", :limit => 50, :labels => "current items|curr-items,total items|total-items", :interval => 5.minutes.to_i * 1000}) %>

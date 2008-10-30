@@ -1,0 +1,297 @@
+/*=== TAB NAVIGATION ===*/
+
+#tabsC {
+  float: left;
+  width: 100%;
+  background: #EDF7E7;
+  font-size: 120%;
+  line-height: normal;
+}
+
+#tabsC ul {
+  margin: 0;
+  padding: 10px 10px 0 0px;
+  list-style: none;
+}
+
+#tabsC li {
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+
+#tabsC a {
+  float: left;
+  background: url( "../../images/template-1/tableftC.gif" ) no-repeat left top;
+  margin: 0;
+  padding: 0 0 0 4px;
+  text-decoration: none;
+}
+
+#tabsC a span {
+  float: left;
+  display: block;
+  background: url( "../../images/template-1/tabrightC.gif" ) no-repeat right top;
+  padding: 5px 15px 4px 6px;
+  color: #464E42;
+}
+
+/* Commented Backslash Hack hides rule from IE5-Mac \*/
+#tabsC a span {
+  float: none;
+}
+#tabsC a span img {
+  border: 0;
+  height: 20px;
+  float: left;
+  margin-right: 5px;
+}
+
+/* End IE5-Mac hack */
+#tabsC a:hover span, #tabsC .selected span {
+  color: #FFF;
+}
+
+#tabsC a:hover, #tabsC .selected {
+  background-position: 0% -42px;
+}
+
+#tabsC a:hover span, #tabsC .selected span {
+  background-position: 100% -42px;
+}
+
+/* === FLASH MESSAGES === */
+div#flash-notice {
+
+}
+
+div#flash-warning {
+
+}
+
+div#flash-error {
+
+}
+
+/* === ERROR MESSAGES === */
+div#errorExplanation {
+
+}
+
+div#errorExplanation h2 {
+
+}
+
+div#errorExplanation p {
+
+}
+
+div#errorExplanation ul {
+
+}
+
+div#errorExplanation ul li {
+
+}
+
+/* === FORMS === */
+div.fieldWithErrors {
+
+}
+
+div.fieldWithErrors label {
+
+}
+
+div.fieldWithErrors input, div.fieldWithErrors select,
+  div.fieldWithErrors textarea {
+
+}
+
+/* base layout related aligment */
+body {
+  font-family: verdana;
+  font-size: 14px;
+  padding: 20px;
+  margin: 0 auto;
+  width: 600px;
+  background: #EDF7E7;
+}
+
+.top {
+
+}
+.top .logo {
+  background: url(../../images/template-1/memcached-logo.png) no-repeat;
+  width: 230px;
+  height: 80px;
+  float: left;
+}
+.top .tools {
+  float: right;
+}
+.top .tools ul {
+  margin: 20 0 0 0;
+  padding: 0;
+}
+.top .tools ul li {
+  display: inline;
+  margin-left: 10px;
+}
+.top .tools ul li a {
+  color: #78B753;
+  text-decoration: none;
+  border-bottom: 2px solid lightgreen;
+}
+.top .tools ul li a:hover {
+  border-bottom: 2px solid darkgreen;
+}
+.center {
+  clear: both;
+}
+.center .tab-content {
+  clear: both;
+  padding: 10px;
+  background: #78B753;
+}
+.center .tab-content h2 {
+  font-size: 90%;
+  color: darkgreen;
+  border-bottom: 1px solid darkgreen;
+  margin: 5px 0 5px 0;
+}
+.center .tab-content h2 a {
+  background: url(../../images/template-1/edit.png) no-repeat top right;
+  padding: 0 15px 4px 0;
+  color: #fff;
+  text-decoration: none;
+  border: 2px solid transparent;
+}
+.center .tab-content h2 a:hover {
+  border: 2px solid darkgreen;
+  background: darkgreen url(../../images/template-1/edit.png) no-repeat top right;
+}
+.center .tab-content table {
+  width: 100%;
+}
+
+/* -------------------------------------------------------
+Author: Vitaly Friedman
+Theme: Green Life - A Fresh, Warm and Readable Table
+URL: http://www.alvit.de/vf
+-------------------------------------------------------
+*/
+
+.center .tab-content table  {
+  font: 11px verdana, verdana, arial;
+  margin: 0;
+  padding: 0;
+  border-collapse: collapse;
+  text-align: left;
+  color: #333;
+  line-height: 19px;
+}
+
+.center .tab-content table  caption {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.center .tab-content table  td {
+  margin: 0;
+  padding: 5px 5px;
+  border: 1px dotted #f5f5f5;
+}
+
+.center .tab-content table  th {
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+.center .tab-content table  thead tr th {
+  background-color: darkgreen;
+  padding: 5px 5px;
+  color: #fff;
+  font-weight: bold;
+  border-right: 2px solid green;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.center .tab-content table  tfoot tr th, tfoot tr td {
+  background-color: transparent;
+  padding: 5px 5px;
+  color: #ccc;
+  border-top: 1px solid #ccc;
+}
+
+.center .tab-content table  tbody tr th {
+  padding: 5px 5px;
+  border-bottom: 1px dotted #fafafa;
+}
+
+.center .tab-content table  tr {
+  background-color: #FBFDF6;
+}
+
+.center .tab-content table  tr.odd {
+  background-color: #EDF7DC;
+}
+
+.center .tab-content table  tr:hover {
+}
+
+.center .tab-content table  tr:hover td, tr:hover td a, tr:hover th a {
+  color: #a10000;
+}
+
+.center .tab-content table  td:hover {
+}
+
+.center .tab-content table  tr:hover th a:hover {
+  background-color: #F7FBEF;
+  border-bottom: 2px solid #86C200;
+}
+
+.center .tab-content table  a {
+  color: #608117;
+  background-image: none;
+  text-decoration: none;
+  border-bottom: 1px dotted #8A8F95;
+  padding: 2px;
+  padding-right: 12px;
+  background: transparent url( http://www.alvit.de/vf/csstablegallery/link.gif ) no-repeat 100% 50%;
+}
+
+.center .tab-content table  a:hover {
+  color: #BBC4CD;
+  background-image: none;
+  text-decoration: none;
+  border-bottom: 3px solid #333;
+  padding: 2px;
+  padding-right: 12px;
+  color: #A2A2A2;
+  background: transparent url( http://www.alvit.de/vf/csstablegallery/link.gif ) no-repeat 100% 50%;
+}
+
+.center .tab-content table  a:visited {
+  text-decoration: none;
+  border-bottom: 1px dotted #333;
+  text-decoration: none;
+  padding-right: 12px;
+  color: #A2A2A2;
+  background: transparent url( http://www.alvit.de/vf/csstablegallery/visitedLink.gif ) no-repeat 100% 50%;
+}
+
+.center .tab-content table  a:visited:hover {
+  background-image: none;
+  text-decoration: none;
+  border-bottom: 3px solid #333;
+  padding: 2px;
+  padding-right: 12px;
+  color: #A2A2A2;
+  background: transparent url( http://www.alvit.de/vf/csstablegallery/visitedLink.gif ) no-repeat 100% 50%;
+}

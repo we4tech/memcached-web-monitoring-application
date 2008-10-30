@@ -1,0 +1,5 @@
+<% if @tab %>
+    <%= render(:partial => "dashboard/tabs/#{@tab}") %>
+<% else %>
+    <%= render(:partial => "dashboard/tabs/charts") %>
+<% end %>

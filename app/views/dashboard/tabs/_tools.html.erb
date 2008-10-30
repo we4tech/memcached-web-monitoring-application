@@ -1,0 +1,34 @@
+<h2>tools</h2>
+<table summary="Submitted table designs">
+  <thead>
+    <tr>
+      <th scope="col">action</th>
+      <th scope="col">description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+          <%= link_to "flush all", dashboard_action_flush_all_url, :confirm => "do you really want to flush your toilet?" %>
+      </td>
+      <td>
+          invalidate all caches from the memecached server.
+      </td>
+    </tr>
+
+    <tr class="odd">
+      <td>
+        <form action="<%= dashboard_action_delete_url %>"
+              method="POST"
+              onsubmit="return confirm('do you really want to remove this cache?')">
+          <label>cache key</label><br/>
+          <input type="text" name="cache_key"/>
+          <input type="submit" value="delete"/>
+        </form>
+      </td>
+      <td>
+          remove a specific cache from the memecached server.
+      </td>
+    </tr>
+  </tbody>
+</table>
