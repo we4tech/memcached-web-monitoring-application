@@ -22,13 +22,17 @@ h2. how to install
 * congrats!! you should now browse http://localhost:3000
 
 h2. screen snaps
+
 h4. graphical data
+
 !http://hasan.we4tech.com/wp-content/uploads/2008/10/picture-2.png!
 
 h4. recent statistical data
+
 !http://hasan.we4tech.com/wp-content/uploads/2008/10/picture-3.png!
 
 h4. tools tab
+
 !http://hasan.we4tech.com/wp-content/uploads/2008/10/picture-4.png!
 
 h2. Credits
